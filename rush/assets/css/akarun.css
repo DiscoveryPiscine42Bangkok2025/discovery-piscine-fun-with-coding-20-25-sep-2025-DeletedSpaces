@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+/* --- Base & Scrollbar --- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0a0a;
+    overflow-x: hidden;
+    /* cursor: none; Hide the default cursor */
+}
+
+/* --- Custom Cursor --- */
+/* .cursor-dot, .cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.2s;
+}
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #3b82f6;
+}
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #3b82f6;
+    transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.1s linear;
+}
+.cursor-outline.grow {
+    width: 60px;
+    height: 60px;
+    border-color: #fff;
+} */
+
+/* --- Animations & Gradients --- */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+
+.gradient-text-blue {
+    background-image: linear-gradient(45deg, #60a5fa, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.gradient-text-purple {
+    background-image: linear-gradient(45deg, #c084fc, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.gradient-text-green {
+    background-image: linear-gradient(45deg, #4ade80, #22c55e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- Background --- */
+.mesh-gradient {
+    background-image: radial-gradient(at 20% 25%, hsla(212, 90%, 25%, 0.3) 0px, transparent 50%),
+                      radial-gradient(at 80% 20%, hsla(288, 70%, 30%, 0.25) 0px, transparent 50%),
+                      radial-gradient(at 50% 80%, hsla(200, 85%, 20%, 0.2) 0px, transparent 50%);
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.floating-element { 
+    z-index: -1; 
+    animation: float 8s ease-in-out infinite alternate; 
+}
+/* --- Floating Navigation --- */
+.floating-nav {
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    animation: fadeIn 0.5s ease-out 0.2s backwards;
+}
+.nav-bubble {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(23, 23, 23, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+.nav-link, .nav-back {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+}
+.nav-link:hover, .nav-back:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.nav-link.active {
+    color: white;
+    background-color: rgba(59, 130, 246, 0.3);
+}
+.nav-divider {
+    width: 1px;
+    height: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Project Cards --- */
+.project-card {
+    background-color: rgba(23, 23, 23, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--x) var(--y), rgba(59, 130, 246, 0.15), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.project-card:hover .card-glow {
+    opacity: 1;
+}
+.card-content {
+    position: relative;
+    z-index: 2;
+}
+.tech-tag {
+    background-color: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: #93c5fd;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+/* --- Contact Button --- */
+.contact-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #3b82f6, #1e3a8a);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+}
+.contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}

@@ -1,0 +1,139 @@
+/* Import a modern font for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+/* --- Keyframe Animations --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* --- General Body Styling --- */
+body {
+    font-family: 'Inter', sans-serif;
+    perspective: 1000px; /* Essential for 3D card effects */
+}
+
+/* --- Background & Hero Section --- */
+.hero-background {
+    background-color: #0a0a0a;
+}
+
+.mesh-gradient {
+    background-image: radial-gradient(at 20% 25%, hsla(212, 90%, 25%, 0.3) 0px, transparent 50%),
+                      radial-gradient(at 80% 20%, hsla(288, 70%, 30%, 0.25) 0px, transparent 50%),
+                      radial-gradient(at 50% 80%, hsla(200, 85%, 20%, 0.2) 0px, transparent 50%);
+    opacity: 0.6;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.floating-element {
+    animation: float 8s ease-in-out infinite alternate;
+    transition: transform 0.4s ease-out; /* Smooth parallax effect */
+}
+
+.floating-element:nth-child(2) {
+    animation-duration: 10s;
+    animation-delay: -2s;
+}
+
+.floating-element:nth-child(3) {
+    animation-duration: 12s;
+    animation-delay: -4s;
+}
+
+/* --- Typography --- */
+.heading-primary .gradient-text {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.text-shadow {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Modern Card Styling --- */
+.portfolio-card {
+    background-color: rgba(23, 23, 23, 0.4); /* Semi-transparent dark background */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease-in-out;
+    transform-style: preserve-3d; /* Enable 3D transformations */
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.portfolio-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Avatar Styling */
+.avatar {
+    background: linear-gradient(135deg, #1e3a8a, #172554);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.view-portfolio-btn {
+    background: linear-gradient(135deg, #1e3a8a, #172554) !important;
+}
+
+/* Skill Tags */
+.skill-tag {
+    background-color: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* --- Buttons --- */
+.btn-primary {
+    background: linear-gradient(45deg, #3b82f6, #1e3a8a);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* --- Initial Animation States --- */
+/* Stagger the animation of the two cards */
+.portfolio-card:nth-child(1) {
+    opacity: 0;
+    animation-delay: 0.2s;
+}
+
+.portfolio-card:nth-child(2) {
+    opacity: 0;
+    animation-delay: 0.4s;
+}
+
+header {
+    animation: fadeIn 0.8s ease-in-out;
+}

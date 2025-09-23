@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern portfolio showcase featuring talented developers and innovative projects">
+    <meta name="keywords" content="portfolio, developer, web development, modern design, Next.js">
+    <meta name="author" content="Portfolio Hub">
+    <title>Portfolio Hub - Modern Developer Showcase</title>
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-950': '#172554',
+                        'blue-900': '#1e3a8a',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body class="bg-black text-white md:h-screen md:overflow-hidden">
+    <!-- Main Container -->
+    <main class="hero-background relative md:h-screen md:flex md:items-center md:justify-center">
+      
+        <div class="absolute inset-0 mesh-gradient"></div>
+        <div class="floating-element absolute top-10 left-10 w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-20 blur-xl"></div>
+        <div class="floating-element absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-r from-white to-blue-200 rounded-full opacity-15 blur-2xl"></div>
+        <div class="floating-element absolute top-1/3 right-16 w-20 h-20 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full opacity-25 blur-lg"></div>
+        
+        <div class="hero-content relative z-10 w-full max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:grid lg:grid-cols-3 lg:items-center gap-12 py-24 lg:py-0">
+                
+                <header class="text-center lg:text-left">
+                    <div class="space-y-4">
+                        <h1 class="heading-primary text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-shadow">
+                            <span class="gradient-text">Portfolio</span>
+                            <br>
+                            <span class="text-white">Hub</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-md mx-auto lg:mx-0">
+                            Discover exceptional talent and innovative projects from our featured developers
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-center lg:justify-start space-x-2 text-sm text-gray-400 mt-6">
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span>2 Developers Available</span>
+                    </div>
+                </header>
+                
+                <section class="lg:col-span-2 flex flex-col md:grid md:grid-cols-2 gap-8">
+                    <article class="portfolio-card modern-card rounded-2xl p-6 lg:p-8 text-center group interactive">
+                        <div class="space-y-4 mb-6">
+                            <div class="avatar w-20 h-20 mx-auto rounded-full flex items-center justify-center text-2xl font-bold text-white shadow-lg">
+                                A
+                            </div>
+                            <div>
+                                <h3 class="text-xl lg:text-2xl font-bold text-white mb-2">Akarun</h3>
+                                <p class="text-blue-300 text-sm font-medium mb-3">Full-Stack Developer</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4 mb-6">
+                            <p class="text-gray-300 text-sm lg:text-base leading-relaxed">
+                                Passionate developer specializing in modern web technologies and scalable application development
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap justify-center gap-2 mb-6">
+                            <span class="skill-tag px-3 py-1 text-blue-300 rounded-full text-xs font-medium">React</span>
+                            <span class="skill-tag px-3 py-1 text-blue-300 rounded-full text-xs font-medium">Node.js</span>
+                            <span class="skill-tag px-3 py-1 text-blue-300 rounded-full text-xs font-medium">TypeScript</span>
+                        </div>
+                        <a href="/rush/akarun.html"  class="btn-primary view-portfolio-btn inline-block px-8 py-3 rounded-xl font-semibold transition-all duration-300 interactive" data-href="/akarun.html">
+                            View Portfolio →
+                        </a>
+                    </article>
+                    
+                    <article class="portfolio-card modern-card rounded-2xl p-6 lg:p-8 text-center group interactive">
+                        <div class="space-y-4 mb-6">
+                            <div class="w-20 h-20 mx-auto bg-gradient-to-br from-gray-600 to-gray-800 rounded-full flex items-center justify-center text-2xl font-bold text-white shadow-lg">
+                                S
+                            </div>
+                            <div>
+                                <h3 class="text-xl lg:text-2xl font-bold text-white mb-2">Someone</h3>
+                                <p class="text-gray-300 text-sm font-medium mb-3">Creative Developer</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4 mb-6">
+                            <p class="text-gray-300 text-sm lg:text-base leading-relaxed">
+                                Creative technologist focused on user experience design and cutting-edge web solutions
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap justify-center gap-2 mb-6">
+                            <span class="px-3 py-1 bg-gray-600 bg-opacity-30 text-gray-300 rounded-full text-xs font-medium border border-gray-500 border-opacity-30">UI/UX</span>
+                            <span class="px-3 py-1 bg-gray-600 bg-opacity-30 text-gray-300 rounded-full text-xs font-medium border border-gray-500 border-opacity-30">Frontend</span>
+                            <span class="px-3 py-1 bg-gray-600 bg-opacity-30 text-gray-300 rounded-full text-xs font-medium border border-gray-500 border-opacity-30">Design</span>
+                        </div>
+                        <a href="/rush/someone.html" class="inline-block px-8 py-3 bg-gradient-to-r from-gray-700 to-gray-600 hover:from-gray-600 hover:to-gray-500 text-white font-semibold rounded-xl transition-all duration-300 interactive" data-href="/someone.html">
+                            View Portfolio →
+                        </a>
+                    </article>
+                </section>
+            </div>
+        </div>
+        
+        <footer class="relative text-center pb-8 lg:absolute lg:bottom-6 lg:left-1/2 lg:transform lg:-translate-x-1/2">
+            <p class="text-gray-500 text-xs font-light">
+                © 2025 Akarun, Someone Portfolio • Crafted love ❤️
+            </p>
+        </footer>
+        
+    </main>
+    
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
