@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Background</title>
+    <link rel="stylesheet" href="backgroound.css">
+</head>
+<body>
+    <h1>Click the button to change background color!</h1>
+    <button onclick="changeBackground()">Change Background</button>
+
+    <script>
+        function changeBackground() {
+            // Create random numbers from 0 to 255 for red, green, blue
+            var red = Math.floor(Math.random() * 256);
+            var green = Math.floor(Math.random() * 256);
+            var blue = Math.floor(Math.random() * 256);
+            
+            // Change the background color
+            document.body.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+        }
+    </script>
+</body>
+</html>
