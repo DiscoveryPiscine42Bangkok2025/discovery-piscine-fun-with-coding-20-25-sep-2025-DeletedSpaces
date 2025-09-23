@@ -67,13 +67,11 @@
 
     <script>
         $(function() {
-            // Cache jQuery objects for better performance
             var $leftInput = $('#left');
             var $rightInput = $('#right');
             var $operatorSelect = $('#operator');
             var $submitBtn = $('#submitBtn');
             
-            // Pure jQuery operations object using jQuery's extend method
             var operations = $.extend({}, {
                 '+': function(a, b) { return a + b; },
                 '-': function(a, b) { return a - b; },
@@ -82,10 +80,8 @@
                 '%': function(a, b) { return a % b; }
             });
             
-            // Store calculator state using jQuery data() method
             $submitBtn.data('operations', operations);
             
-            // Pure jQuery validation function with method chaining
             function validateInputs($left, $right) {
                 var leftVal = parseInt($left.val());
                 var rightVal = parseInt($right.val());
@@ -95,7 +91,6 @@
                 }).length ? { left: leftVal, right: rightVal } : null;
             }
             
-            // Pure jQuery error handling with chaining
             function showError(message) {
                 $(window).queue(function() {
                     alert(message);
@@ -104,7 +99,6 @@
                 });
             }
             
-            // Pure jQuery result display with chaining
             function showResult(result) {
                 $(window).queue(function() {
                     alert('Result: ' + result);
@@ -113,7 +107,6 @@
                 });
             }
             
-            // Main calculation function using jQuery patterns
             function calculate() {
                 var validatedInputs = validateInputs($leftInput, $rightInput);
                 
@@ -125,18 +118,15 @@
                 var operator = $operatorSelect.val();
                 var operations = $submitBtn.data('operations');
                 
-                // Check division by zero using jQuery's inArray method
                 if ($.inArray(operator, ['/', '%']) !== -1 && validatedInputs.right === 0) {
                     showError("It's over 9000!");
                     return;
                 }
                 
-                // Execute operation using jQuery stored functions
                 var result = operations[operator](validatedInputs.left, validatedInputs.right);
                 showResult(result);
             }
             
-            // Pure jQuery reminder function with chaining
             function remindMe() {
                 $(window).queue('reminder', function() {
                     alert('Please, use me...');
@@ -146,12 +136,10 @@
                 $(window).dequeue('reminder');
             }
             
-            // Setup using jQuery method chaining and namespaced events
             $submitBtn
                 .data('reminderInterval', setInterval(remindMe, 30000))
                 .on('click.calculator', calculate);
             
-            // Optional: Clear interval when page unloads using jQuery
             $(window).on('beforeunload', function() {
                 clearInterval($submitBtn.data('reminderInterval'));
             });

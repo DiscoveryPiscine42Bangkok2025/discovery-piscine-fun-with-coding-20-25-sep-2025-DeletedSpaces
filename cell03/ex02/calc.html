@@ -70,7 +70,6 @@
             var right = document.getElementById('right').value;
             var operator = document.getElementById('operator').value;
             
-            // Check if inputs are positive integers
             var leftNum = parseInt(left);
             var rightNum = parseInt(right);
             
@@ -80,7 +79,6 @@
                 return;
             }
             
-            // Check division by zero
             if ((operator == '/' || operator == '%') && rightNum == 0) {
                 alert("It's over 9000!");
                 console.log("It's over 9000!");

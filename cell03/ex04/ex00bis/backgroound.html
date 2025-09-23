@@ -12,12 +12,10 @@
     <script>
         $(document).ready(function() {
             $('#changeBtn').click(function() {
-                // Create random numbers from 0 to 255 for red, green, blue
                 var red = Math.floor(Math.random() * 256);
                 var green = Math.floor(Math.random() * 256);
                 var blue = Math.floor(Math.random() * 256);
                 
-                // Change the background color using jQuery
                 $('body').css('background-color', 'rgb(' + red + ',' + green + ',' + blue + ')');
             });
         });
