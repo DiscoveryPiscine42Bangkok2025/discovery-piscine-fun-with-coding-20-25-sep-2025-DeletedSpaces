@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 50px;
+            background-color: lightgray;
+        }
+        
+        table {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        
+        input {
+            padding: 5px;
+            margin: 5px;
+        }
+        
+        select {
+            padding: 5px;
+            margin: 5px;
+        }
+        
+        #submitBtn {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    
+    <table>
+        <tr>
+            <td>Left Number:</td>
+            <td><input type="text" id="left"></td>
+        </tr>
+        <tr>
+            <td>Operator:</td>
+            <td>
+                <select id="operator">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                    <option value="%">%</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Right Number:</td>
+            <td><input type="text" id="right"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Try me!" id="submitBtn"></td>
+        </tr>
+    </table>
+
+    <script>
+        $(function() {
+            // Cache jQuery objects for better performance
+            var $leftInput = $('#left');
+            var $rightInput = $('#right');
+            var $operatorSelect = $('#operator');
+            var $submitBtn = $('#submitBtn');
+            
+            // Pure jQuery operations object using jQuery's extend method
+            var operations = $.extend({}, {
+                '+': function(a, b) { return a + b; },
+                '-': function(a, b) { return a - b; },
+                '*': function(a, b) { return a * b; },
+                '/': function(a, b) { return a / b; },
+                '%': function(a, b) { return a % b; }
+            });
+            
+            // Store calculator state using jQuery data() method
+            $submitBtn.data('operations', operations);
+            
+            // Pure jQuery validation function with method chaining
+            function validateInputs($left, $right) {
+                var leftVal = parseInt($left.val());
+                var rightVal = parseInt($right.val());
+                
+                return !$.grep([leftVal, rightVal], function(val) {
+                    return isNaN(val) || val < 0;
+                }).length ? { left: leftVal, right: rightVal } : null;
+            }
+            
+            // Pure jQuery error handling with chaining
+            function showError(message) {
+                $(window).queue(function() {
+                    alert(message);
+                    console.log(message);
+                    $(this).dequeue();
+                });
+            }
+            
+            // Pure jQuery result display with chaining
+            function showResult(result) {
+                $(window).queue(function() {
+                    alert('Result: ' + result);
+                    console.log('Result: ' + result);
+                    $(this).dequeue();
+                });
+            }
+            
+            // Main calculation function using jQuery patterns
+            function calculate() {
+                var validatedInputs = validateInputs($leftInput, $rightInput);
+                
+                if (!validatedInputs) {
+                    showError('Error :(');
+                    return;
+                }
+                
+                var operator = $operatorSelect.val();
+                var operations = $submitBtn.data('operations');
+                
+                // Check division by zero using jQuery's inArray method
+                if ($.inArray(operator, ['/', '%']) !== -1 && validatedInputs.right === 0) {
+                    showError("It's over 9000!");
+                    return;
+                }
+                
+                // Execute operation using jQuery stored functions
+                var result = operations[operator](validatedInputs.left, validatedInputs.right);
+                showResult(result);
+            }
+            
+            // Pure jQuery reminder function with chaining
+            function remindMe() {
+                $(window).queue('reminder', function() {
+                    alert('Please, use me...');
+                    console.log('Please, use me...');
+                    $(this).dequeue('reminder');
+                });
+                $(window).dequeue('reminder');
+            }
+            
+            // Setup using jQuery method chaining and namespaced events
+            $submitBtn
+                .data('reminderInterval', setInterval(remindMe, 30000))
+                .on('click.calculator', calculate);
+            
+            // Optional: Clear interval when page unloads using jQuery
+            $(window).on('beforeunload', function() {
+                clearInterval($submitBtn.data('reminderInterval'));
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Exercise</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        #size-display {
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="size-display">Size: 200px</div>
+    <div id="balloon"></div>
+
+    <script>
+        $(function() {
+            // Initialize balloon data using jQuery data() method
+            var $balloon = $('#balloon');
+            var $sizeDisplay = $('#size-display');
+            var colors = ['red', 'green', 'blue'];
+            
+            // Store initial state using jQuery's data() method
+            $balloon.data({
+                'currentSize': 200,
+                'currentColorIndex': 0,
+                'colors': colors
+            });
+
+            // Pure jQuery function to get next color using data()
+            function getNextColor($el) {
+                var colors = $el.data('colors');
+                var currentIndex = $el.data('currentColorIndex');
+                var nextIndex = (currentIndex + 1) % colors.length;
+                $el.data('currentColorIndex', nextIndex);
+                return colors[nextIndex];
+            }
+
+            // Pure jQuery function to get previous color using data()
+            function getPreviousColor($el) {
+                var colors = $el.data('colors');
+                var currentIndex = $el.data('currentColorIndex');
+                var prevIndex = (currentIndex - 1 + colors.length) % colors.length;
+                $el.data('currentColorIndex', prevIndex);
+                return colors[prevIndex];
+            }
+
+            // Pure jQuery function with method chaining
+            function updateBalloon($el, size, color) {
+                $el.data('currentSize', size)
+                   .animate({
+                       'width': size + 'px',
+                       'height': size + 'px'
+                   }, 200)
+                   .css('background-color', color);
+                
+                $sizeDisplay.text('Size: ' + size + 'px');
+            }
+
+            // Click event using jQuery method chaining and data()
+            $balloon.click(function() {
+                var $this = $(this);
+                var currentSize = $this.data('currentSize') + 10;
+                var newColor = getNextColor($this);
+                
+                // Check if balloon should explode using jQuery comparison
+                if (currentSize > 420) {
+                    // Reset using jQuery data() method
+                    currentSize = 200;
+                    $this.data('currentColorIndex', 0);
+                    newColor = $this.data('colors')[0];
+                }
+                
+                updateBalloon($this, currentSize, newColor);
+            });
+
+            // Mouse leave event with jQuery data() methods
+            $balloon.mouseleave(function() {
+                var $this = $(this);
+                var currentSize = $this.data('currentSize');
+                
+                // Shrink by 5px (minimum 200px) using jQuery conditions
+                if (currentSize > 200) {
+                    currentSize -= 5;
+                    var newColor = getPreviousColor($this);
+                    updateBalloon($this, currentSize, newColor);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
