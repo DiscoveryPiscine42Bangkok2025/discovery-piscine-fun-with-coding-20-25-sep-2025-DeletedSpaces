@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Exercise</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        #size-display {
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="size-display">Size: 200px</div>
+    <div id="balloon"></div>
+
+    <script>
+        var balloon = document.getElementById('balloon');
+        var sizeDisplay = document.getElementById('size-display');
+        var currentSize = 200;
+        var currentColorIndex = 0;
+        var colors = ['red', 'green', 'blue'];
+
+        // Function to get the next color in the sequence
+        function getNextColor() {
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            return colors[currentColorIndex];
+        }
+
+        // Function to get the previous color in the sequence
+        function getPreviousColor() {
+            currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+            return colors[currentColorIndex];
+        }
+
+        // Function to update balloon size and color
+        function updateBalloon(size, color) {
+            balloon.style.width = size + 'px';
+            balloon.style.height = size + 'px';
+            balloon.style.backgroundColor = color;
+            sizeDisplay.textContent = 'Size: ' + size + 'px';
+        }
+
+        // Click event - grow balloon and change color
+        balloon.addEventListener('click', function() {
+            // Grow by 10px
+            currentSize += 10;
+            
+            // Change to next color
+            var newColor = getNextColor();
+            
+            // Check if balloon should explode (size > 420px)
+            if (currentSize > 420) {
+                // Explode - return to original size and red color
+                currentSize = 200;
+                currentColorIndex = 0;
+                newColor = 'red';
+            }
+            
+            updateBalloon(currentSize, newColor);
+        });
+
+        // Mouse leave event - shrink balloon and reverse color
+        balloon.addEventListener('mouseleave', function() {
+            // Shrink by 5px (minimum 200px)
+            if (currentSize > 200) {
+                currentSize -= 5;
+                
+                // Change to previous color
+                var newColor = getPreviousColor();
+                
+                updateBalloon(currentSize, newColor);
+            }
+        });
+    </script>
+</body>
+</html>
