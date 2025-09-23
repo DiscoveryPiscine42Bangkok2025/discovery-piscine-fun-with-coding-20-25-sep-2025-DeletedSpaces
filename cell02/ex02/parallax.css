@@ -1,0 +1,97 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Parallax image sections */
+.parallax-image {
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* First image */
+#image1 {
+    background-image: url('https://imageio.forbes.com/specials-images/imageserve/682dfe3765124eff8366ef25/Skibidi-Toilet-is-set-to-become-a-Michael-Bay-film/0x0.jpg?format=jpg&width=960');
+}
+
+/* Second image */
+#image2 {
+    background-image: url('https://images.steamusercontent.com/ugc/2476496009601162326/7ED885200AB2A590229424F922C23CFE670BC4F1/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true');
+}
+
+/* Text on images */
+.text {
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.text h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.text p {
+    font-size: 20px;
+}
+
+/* Black section in the middle */
+.black-section {
+    background-color: black;
+    color: white;
+    padding: 100px 50px;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.black-section h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.black-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Simple mobile fix */
+@media (max-width: 768px) {
+    .parallax-image {
+        background-attachment: scroll;
+    }
+    
+    .text h1 {
+        font-size: 32px;
+    }
+    
+    .text p {
+        font-size: 16px;
+    }
+    
+    .black-section h2 {
+        font-size: 28px;
+    }
+    
+    .black-section p {
+        font-size: 16px;
+    }
+}
