@@ -34,77 +34,172 @@
 
     <main class="relative z-10">
 
-        <section id="about" class="min-h-screen flex items-center justify-center text-center px-6">
-            <div class="max-w-4xl mx-auto animate-fade-in">
-                <h1 class="text-5xl md:text-8xl font-black text-white mb-4">
-                    I build things for the <span class="gradient-text-blue">web.</span>
-                </h1>
-                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-                    I'm Akarun, a full-stack developer passionate about creating modern, responsive, and scalable web applications from scratch.
-                </p>
+        <section id="about" class="min-h-screen flex items-center justify-center px-6 py-24">
+            <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center animate-fade-in">
+                <div class="flex justify-center lg:justify-end">
+                    <div class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 relative">
+                        <img src="https://images.steamusercontent.com/ugc/260472595007606300/1F67C0FA367C67FFE4D9AC6853FED4C17ED59F66/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true" alt="Akarun Profile" class="rounded-2xl w-full h-full object-cover">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+
+                <div class="text-center lg:text-left space-y-6">
+                    <h1 class="text-5xl md:text-6xl font-black text-white">
+                        Hello, I'm <span class="gradient-text-blue">Attaporn Karun.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-400">
+                        I'm a network engineer and cyber security specialist with a passion for technology and a love for learning new things.
+                    </p>
+                    <p class="text-md text-gray-500">
+                        *Disclaimer: This is a demo portfolio not my real portfolio.*
+                    </p>
+                </div>
             </div>
         </section>
 
         <section id="showcase" class="py-24 px-6">
             <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-black mb-2">Showcase</h2>
+                    <p class="text-lg text-gray-400">A collection of my activities, certifications, and projects.</p>
+                </div>
+
+                <div class="flex justify-center items-center gap-4 md:gap-8 mb-12">
+                    <button class="tab-button active interactive-link" data-tab="activity">Activity</button>
+                    <button class="tab-button interactive-link" data-tab="certification">Certification</button>
+                    <button class="tab-button interactive-link" data-tab="project">Project</button>
+                </div>
+
+                <div>
+                    <div id="activity" class="tab-panel active">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="showcase-card interactive-link">
+                                <img src="/rush/assets/img/akarun/thctt2025.jpg" alt="Activity" class="showcase-image">
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">Thailand Cyber Top Talent 2025</h3>
+                                    <p class="text-sm text-gray-400">Won 2nd place and received a prize of 40,000 baht for the team พิกัดลับลาดกระบัง (สถาบันเทคโนโลยีพระจอมเกล้าฯ ลาดกระบัง)</p>
+                                </div>
+                            </div>
+                            <div class="showcase-card interactive-link">
+                                <img src="/rush/assets/img/akarun/thctt2024.jpg" alt="Activity" class="showcase-image">
+                                <div class="p-4">wg
+                                    <h3 class="font-bold text-lg">Thailand Cyber Top Talent 2024</h3>
+                                    <p class="text-sm text-gray-400">Won 1st place and received a prize of 80,000 baht for the team SK1LL_ISSU3 from Wat Suthiwararam School, Wat Sutharam School, and Suankularb Wittayalai School.</p>
+                                </div>
+                            </div>
+                            <div class="showcase-card interactive-link">
+                                <img src="/rush/assets/img/akarun/thctt2023.jpg" alt="Activity" class="showcase-image">
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">Thailand Cyber Top Talent 2023</h3>
+                                    <p class="text-sm text-gray-400">Won 2nd place and received a prize of 30,000 baht for the team Surrender from Wat Suthiwararam School / Ramkhamhaeng University (Secondary School Department) / Wat Sutharam School.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="certification" class="tab-panel hidden">
+                         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="showcase-card interactive-link">
+                                 <div class="showcase-image">
+                                    <p class="text-center text-white">Thailand Cyber Top Talent 2025</p>
+                                 </div>
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">Thailand Cyber Top Talent 2024</h3>
+                                    <p class="text-sm text-gray-400">Certified in core cybersecurity skills.</p>
+                                </div>
+                            </div>
+                            <div class="showcase-card interactive-link">
+                                <img src="/rush/assets/img/akarun/cert_2024.jpg" alt="Certification" class="showcase-image">
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">Thailand Cyber Top Talent 2024</h3>
+                                    <p class="text-sm text-gray-400">Certified in core cybersecurity skills.</p>
+                                </div>
+                            </div>
+                             <div class="showcase-card interactive-link">
+                                <img src="/rush/assets/img/akarun/cert_2023.png" alt="Certification" class="showcase-image">
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">Thailand Cyber Top Talent 2023</h3>
+                                    <p class="text-sm text-gray-400">Certified in core cybersecurity skills.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="project" class="tab-panel hidden">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="project-card interactive-link">
+                                <div class="card-glow"></div>
+                                <div class="card-content">
+                                    <h3 class="text-xl font-bold mb-2">Portfolio Hub Landing Page</h3>
+                                    <p class="text-gray-400 text-sm mb-4">The interactive landing page that brought you here, built with modern CSS and jQuery.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                            <span class="tech-tag">HTML5</span>
+                                            <span class="tech-tag">TailwindCSS</span>
+                                            <span class="tech-tag">CSS</span>
+                                            <span class="tech-tag">jQuery</span>
+                                            <span class="tech-tag">JavaScript</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="min-h-screen flex items-center justify-center px-6 py-24">
+            <div class="max-w-6xl w-full mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-black mb-2">My Work & <span class="gradient-text-purple">Projects</span></h2>
-                    <p class="text-lg text-gray-400">A selection of my recent projects.</p>
+                    <h2 class="text-4xl md:text-5xl font-black mb-2">Contact <span class="gradient-text-green">Me</span></h2>
+                    <p class="text-lg text-gray-400">Have a question or want to work together? Let's talk.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="project-card interactive-link">
-                        <div class="card-glow"></div>
-                        <div class="card-content">
-                            <h3 class="text-xl font-bold mb-2">E-Commerce Platform</h3>
-                            <p class="text-gray-400 text-sm mb-4">A full-featured online store built with a scalable backend and a reactive frontend.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">MongoDB</span>
+                <div class="grid lg:grid-cols-2 gap-16 items-start">
+                    <div class="space-y-8 text-center lg:text-left">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Contact Information</h3>
+                            <p class="text-gray-400">Fill up the form and I will get back to you within 24 hours. Or if you prefer, you can reach me through the details below.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-center lg:justify-start gap-4">
+                                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                <span class="text-gray-300">attaporn.kar@deleteduser.in.th</span>
+                            </div>
+                            <div class="flex items-center justify-center lg:justify-start gap-4">
+                                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <span class="text-gray-300">Bangkok, Thailand</span>
                             </div>
                         </div>
                     </div>
-                    <div class="project-card interactive-link">
-                        <div class="card-glow"></div>
-                        <div class="card-content">
-                            <h3 class="text-xl font-bold mb-2">Project Management Tool</h3>
-                            <p class="text-gray-400 text-sm mb-4">A collaborative tool for teams to manage tasks, track progress, and communicate effectively.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">Next.js</span>
-                                <span class="tech-tag">PostgreSQL</span>
+                    
+                    <div>
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="Attaporn Karun" required>
                             </div>
-                        </div>
-                    </div>
-                    <div class="project-card interactive-link">
-                        <div class="card-glow"></div>
-                        <div class="card-content">
-                            <h3 class="text-xl font-bold mb-2">Portfolio Hub Landing Page</h3>
-                            <p class="text-gray-400 text-sm mb-4">The interactive landing page that brought you here, built with modern CSS and jQuery.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="tech-tag">HTML5</span>
-                                <span class="tech-tag">TailwindCSS</span>
-                                <span class="tech-tag">jQuery</span>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required>
                             </div>
-                        </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="4" class="form-input" placeholder="Your message..." required></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="contact-button w-full interactive-link">Send Message</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="min-h-screen flex items-center justify-center text-center px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-black mb-4">Get In <span class="gradient-text-green">Touch</span></h2>
-                <p class="text-lg md:text-xl text-gray-400 mb-8">
-                    I'm currently open to new opportunities. Feel free to send me a message!
-                </p>
-                <a href="mailto:email@example.com" class="contact-button interactive-link">
-                    Say Hello
-                </a>
-            </div>
-        </section>
-
+        <footer class="relative text-center pb-8 lg:absolute lg:bottom-6 lg:left-1/2 lg:transform lg:-translate-x-1/2">
+            <p class="text-gray-500 text-xs font-light">
+                © 2025 Attaporn Karun • Crafted love ❤️
+            </p>
+        </footer>
     </main>
     
     <script src="assets/js/akarun.js"></script>

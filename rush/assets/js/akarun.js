@@ -68,12 +68,32 @@ $(document).ready(function() {
         });
     });
 
+    $('.tab-button').on('click', function() {
+        const targetTab = $(this).data('tab');
+
+        // Update button active state
+        $('.tab-button').removeClass('active');
+        $(this).addClass('active');
+
+        // Show/hide content panels
+        $('.tab-panel').addClass('hidden');
+        $('#' + targetTab).removeClass('hidden');
+    });
+
     // --- Smooth Page Transition for Back Button ---
     $('.nav-back').on('click', function(e) {
         e.preventDefault();
         const destination = $(this).attr('href');
         $('body').css('transition', 'opacity 0.5s ease-in-out').css('opacity', '0');
         setTimeout(() => { window.location.href = destination; }, 500);
+    });
+
+    $('#contact-form').on('submit', function(e) {
+        e.preventDefault();
+
+        alert("Thank you for your message! Please note: this is a demo and the form is not functional.");
+
+        $(this).trigger('reset');
     });
 
 });
